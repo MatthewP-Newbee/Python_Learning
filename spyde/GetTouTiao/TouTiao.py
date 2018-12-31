@@ -37,7 +37,7 @@ def get_images(json):
             if images:
                 for image in images:
                     yield {
-                        'image': image.get('url'),
+                        'image': 'https:' + image.get('url'),
                         'title': title
                     }
 
@@ -57,7 +57,7 @@ def save_image(item):
     except requests.ConnectionError:
         print('Failed to save image.')
 
-        
+
 groups = [x * 20 for x in range(1, 6)]
 for each in groups:
     page = get_page(each)
